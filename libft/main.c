@@ -2,14 +2,17 @@
 #include <stdio.h>
 
 int main() {
+    char    **res;
+    char    *s = " emirhan, hanifi, HABEŞ";
+    char    c = ' ';
+    
+    res = ft_split(s, c);
 
-    char    *s = "abcSelamunAleykümcba";
-    char    *s2 = "abc";
-    char *res = ft_strtrim(s, s2);
-   
-    printf("%s \n", res);
-    
-    free(res);
-    
+    while (*res)
+        printf("%s \n", *res++);
+
+    while (*res)
+        free(*res++);
+
     return (0);
 }
