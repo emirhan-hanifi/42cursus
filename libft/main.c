@@ -1,18 +1,10 @@
-#include "libft.h"
 #include <stdio.h>
+#include <string.h>
+#include "libft.h"
 
-int main() {
-    char    **res;
-    char    *s = " emirhan, hanifi, HABEŞ";
-    char    c = ' ';
-    
-    res = ft_split(s, c);
 
-    while (*res)
-        printf("%s \n", *res++);
-
-    while (*res)
-        free(*res++);
-
+int main() 
+{
+    ft_putnbr_fd(-42, 1);
     return (0);
 }

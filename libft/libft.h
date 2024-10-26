@@ -6,7 +6,7 @@
 /*   By: ehabes <ehabes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 23:01:48 by ehabes            #+#    #+#             */
-/*   Updated: 2024/10/24 15:01:47 by ehabes           ###   ########.fr       */
+/*   Updated: 2024/10/26 20:42:15 by ehabes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char    *ft_strdup(const char *s);
 char    *ft_substr(char const *s, unsigned int start, size_t len);
 char    *ft_strjoin(char const *s1, char const *s2);
 char    *ft_strtrim(char const *s1, char const *set);
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 char    **ft_split(char const *s, char c);
 
@@ -49,10 +50,22 @@ char    **ft_split(char const *s, char c);
 void    *ft_memset(void *s, int c, size_t n);
 void    *ft_memchr(const void *s, int c, size_t n);
 void    *ft_memcpy(void *dest, const void *src, size_t n);
-void    *memmove(void *dest, const void *src, size_t n);
+void    *ft_memmove(void *dest, const void *src, size_t n);
 void    *ft_calloc(size_t nmemb, size_t size);
 
 void    ft_bzero(void *s, size_t n);
+void    ft_putchar_fd(char c, int fd);
+void    ft_putstr_fd(char *s, int fd);
+void    ft_putendl_fd(char *s, int fd);
+void    ft_putnbr_fd(int n, int fd);
+void    ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+
+
+typedef struct      s_list {
+    void            *content;
+    struct s_list   *next; 
+}                   t_list;
 
 
 #endif
