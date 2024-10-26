@@ -5,6 +5,6 @@
 
 int main() 
 {
-    ft_putnbr_fd(-42, 1);
+    printf("%d", ft_strncmp("emirhan","emirkan", 5));
     return (0);
 }
