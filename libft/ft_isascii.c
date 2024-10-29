@@ -6,13 +6,13 @@
 /*   By: ehabes <ehabes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:14:56 by ehabes            #+#    #+#             */
-/*   Updated: 2024/10/21 22:58:23 by ehabes           ###   ########.fr       */
+/*   Updated: 2024/10/28 21:36:12 by ehabes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= '\0' && c <= '~')
-        return (1);
-    return (0);    
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

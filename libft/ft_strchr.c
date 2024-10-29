@@ -3,30 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehabes <ehabes@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: ehabes <ehabes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 12:48:33 by ehabes            #+#    #+#             */
-/*   Updated: 2024/10/20 18:17:23 by ehabes           ###   ########.fr       */
+/*   Updated: 2024/10/28 21:43:05 by ehabes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    char    *ptr;
-    size_t  i;
+	char	*p;
+	int		find;
 
-    ptr = NULL;
-    i = 0;
-    while (s[i])
-    {
-        if (s[i] == c)
-        {
-            ptr = (char *)&s[i];
-            break;
-        }
-        i++;
-    }
-    return (ptr);
+	find = 0;
+	p = (char *)s;
+	if (*p == (unsigned char)c)
+		find = 1;
+	else
+	{
+		while (*p != (unsigned char)c && *p != '\0')
+		{
+			p++;
+			if (*p == (unsigned char)c)
+				find = 1;
+		}
+	}
+	if (find == 1)
+		return (p);
+	else
+		return (0);
 }

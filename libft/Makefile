@@ -6,7 +6,7 @@
 #    By: ehabes <ehabes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/12 22:56:49 by ehabes            #+#    #+#              #
-#    Updated: 2024/10/26 19:30:06 by ehabes           ###   ########.fr        #
+#    Updated: 2024/10/27 18:26:26 by ehabes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ SRCS = main.c ft_isalpha.c ft_toupper.c ft_tolower.c \
 		ft_strjoin.c ft_strtrim.c ft_split.c \
 		ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 		ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-		
-
+		ft_itoa.c
+	
 OBJS = $(SRCS:.c=.o)
 
 HEADER = libft.h

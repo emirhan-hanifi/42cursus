@@ -6,30 +6,33 @@
 /*   By: ehabes <ehabes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 20:29:19 by ehabes            #+#    #+#             */
-/*   Updated: 2024/10/21 00:40:45 by ehabes           ###   ########.fr       */
+/*   Updated: 2024/10/28 21:41:20 by ehabes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-    size_t  d_len;
-    size_t  s_len;
-    size_t  i;
+	size_t	i;
+	size_t	j;
+	size_t	ldest;
+	size_t	lsrc;
 
-    d_len = ft_strlen(dst);
-    s_len = ft_strlen(src);
-    
-    if (size <= d_len) return (size + s_len);
-    
-    i = 0;
-    while (i < (d_len - size) - 1 && src[i])
-    {
-        dst[d_len + i] = src[i];
-        i++;
-    }
-    dst[d_len + i] = '\0';
-
-    return (d_len + s_len);
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	ldest = ft_strlen(dst);
+	lsrc = ft_strlen(src);
+	j = ldest;
+	if (ldest >= size)
+		return (size + lsrc);
+	while (i < size - 1 - ldest && src[i] != '\0')
+	{
+		dst[j] = src[i];
+		i++;
+		j++;
+	}
+	dst[j] = '\0';
+	return (ldest + lsrc);
 }
