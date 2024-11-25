@@ -12,10 +12,10 @@
 
 #include "libftprintf.h"
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-    va_list args;
-    int     count;
+    va_list	args;
+    int		count;
 
     va_start(args, format);
     count = 0;
