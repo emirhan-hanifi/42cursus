@@ -6,7 +6,7 @@
 /*   By: ehabes <ehabes@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 23:49:53 by ehabes            #+#    #+#             */
-/*   Updated: 2024/11/25 23:02:15 by ehabes           ###   ########.fr       */
+/*   Updated: 2024/11/26 15:25:48 by ehabes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 int ft_puthex(unsigned int n, unsigned char x)
 {
-    char	*hex_dig_u; 
-    char	*hex_dig_d;
 	char	*hex_digits; 
 	char	buffer[11];
 	int		i;
 	int count;
 	
-    hex_dig_u = "0123456789ABCDEF";
-	hex_dig_d = "0123456789abcdef";
-    hex_digits = (x == 'x') ? hex_dig_d : hex_dig_u;
+    hex_digits = (x) ? "0123456789ABCDEF" : "0123456789abcdef";
 	
 	if (n == 0)
 	{
