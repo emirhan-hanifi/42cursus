@@ -6,8 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_putchr.c ft_putstr.c ft_putptr.c ft_putnbr.c \
-		ft_putunbr.c ft_puthex.c ft_print_format.c ft_putpercent.c
+SRCS = ft_printf.c ft_printf_utils.c
 
 OBJ = $(SRCS:.c=.o)
 
@@ -26,4 +25,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:all $(NAME) clean fclean re
+.PHONY:all clean fclean re
