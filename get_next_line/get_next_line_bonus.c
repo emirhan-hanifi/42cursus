@@ -14,18 +14,19 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*full_str[666];
+	static char	*buffer[4096];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	full_str[fd] = read_function(fd, full_str[fd]);
-	if (!full_str[fd])
+	buffer[fd] = read_function(fd, buffer[fd]);
+	if (!buffer[fd])
 		return (NULL);
-	line = ft_getline(full_str[fd]);
-	full_str[fd] = ft_getrest(full_str[fd]);
+	line = ft_getline(buffer[fd]);
+	buffer[fd] = ft_getrest(buffer[fd]);
 	return (line);
 }
+
 char	*read_function(int fd, char *str)
 {
 	char	*tmp;
@@ -41,7 +42,7 @@ char	*read_function(int fd, char *str)
 		if (bytes == -1)
 		{
 			free(tmp);
-            free(str);
+			free(str);
 			return (NULL);
 		}
 		tmp[bytes] = '\0';
@@ -51,56 +52,56 @@ char	*read_function(int fd, char *str)
 	return (str);
 }
 
-char	*ft_getline(char *full_str)
+char	*ft_getline(char *buffer)
 {
 	int		i;
 	char	*line;
 
 	i = 0;
-	if (!full_str[i])
+	if (!buffer[i])
 		return (NULL);
-	while (full_str[i] && full_str[i] != '\n')
+	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	line = (char *)malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (full_str[i] && full_str[i] != '\n')
+	while (buffer[i] && buffer[i] != '\n')
 	{
-		line[i] = full_str[i];
+		line[i] = buffer[i];
 		i++;
 	}
-	if (full_str[i] == '\n')
+	if (buffer[i] == '\n')
 	{
-		line[i] = full_str[i];
+		line[i] = buffer[i];
 		i++;
 	}
 	line[i] = '\0';
 	return (line);
 }
 
-char	*ft_getrest(char *full_str)
+char	*ft_getrest(char *buffer)
 {
 	int		i;
 	int		j;
 	char	*restof;
 
 	i = 0;
-	while (full_str[i] && full_str[i] != '\n')
+	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	if (!full_str[i])
+	if (!buffer[i])
 	{
-		free(full_str);
+		free(buffer);
 		return (NULL);
 	}
-	restof = (char *)malloc(sizeof(char) * (ft_strlen(full_str) - i + 1));
+	restof = (char *)malloc(sizeof(char) * (ft_strlen(buffer) - i + 1));
 	if (!restof)
 		return (NULL);
 	i++;
 	j = 0;
-	while (full_str[i])
-		restof[j++] = full_str[i++];
+	while (buffer[i])
+		restof[j++] = buffer[i++];
 	restof[j] = '\0';
-	free(full_str);
+	free(buffer);
 	return (restof);
 }
